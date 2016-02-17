@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* https://codepen.io/jasonadelia/pen/DnrAei */
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #434343;
+  background-image:linear-gradient(#434343, #282828);
+}
+
+$CELL_SIZE: 25px;
+
+.grid {
+  background-color: transparent;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height: 100%;
+  background-size: $CELL_SIZE*2 $CELL_SIZE*2;
+  padding: 12.5px;
+  margin: 0;
+  font-family: sans-serif;
+
+  $NODE_HEIGHT: 200px;
+  $NODE_WIDTH: 200px;
+  $BORDER_WIDTH: 2px;
+  $BORDER_COLOR: #CCC;
+  $BORDER_RADIUS: 12.5px;
+  $SHADOW_COLOR: #111;
+
+  .node {
+    position: absolute;
+    display: inline-block;
+    width: $NODE_WIDTH - (2*$BORDER_WIDTH);    /* 100-2*border */
+    //height: $NODE_HEIGHT - (2*$BORDER_WIDTH);  /* 200-2*border */
+    background-color: #888;
+    color: #000;
+    font-size: 10pt;
+    border: $BORDER_WIDTH solid $BORDER_COLOR;
+    border-radius: $BORDER_RADIUS;
+    box-shadow: $SHADOW_COLOR 0 0 8px 0;
+
+    &.selected {
+      border-color: #FFF;
+    }
+
+    >.label {
+      // This might be renamed to title
+      padding: 8px;
+      color: #222;
+      font-weight: bold;
+      border: 0 solid $BORDER_COLOR;
+      border-bottom-width: 1px;
+    }
+
+    >.description {
+      padding: 10px;
+      border-bottom: 1px solid $BORDER_COLOR;
+      background: #333;
+      color: #AAA;
+    }
+
+    >.description:last-child {
+      border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
+    }
+
+    >.properties {
+      padding-top: 1em;
+
+      >.inputs {
+        display: inline-block;
+        width: 45%;
+        /*
+        position: absolute;
+        top: 100px;
+        left: -8px;
+        */
+      }
+
+      >.outputs {
+        display: inline-block;
+        width: 45%;
+        /*
+        position: absolute;
+        top: 100px;
+        right: -8px;
+        */
+      }
+    }
+  }
+
+  .connector {
+    display: block;
+    margin-bottom: 10px;
+    width: 10px;
+    height: 10px;
+    top: 80px;
+    background: #FFF;
+    //position: absolute;
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+    padding: -2px;
+    color: #CCC;
+
+    .label {
+      position: relative;
+      top: -2px;
+      width: 200px;
+    }
+  }
+
+  .connector-input {
+    background: #5F5;
+    left: -7.5px;
+    .label {
+      left: -205px;
+      text-align: right;
+    }
+  }
+
+  .connector-output {
+    background: #F55;
+    right: -7.5px;
+    .label {
+      left: 15px;
+      text-align: left;
+    }
+  }
+}
+
