@@ -29,6 +29,10 @@ $(document).ready(function() {
                     endOnly: true
                 }
             })
+            .resizable({
+                preserveAspectRatio: true,
+                edges: { left: true, right: true, bottom: true, top: true }
+            })
             .on('dragmove', function (event) {
                 x += event.dx;
                 y += event.dy;
@@ -58,7 +62,7 @@ $(document).ready(function() {
 
                 target.setAttribute('data-x', x);
                 target.setAttribute('data-y', y);
-                target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
+                //target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
             })
             .on('tap', function (event) {
                 event.currentTarget.classList.toggle('selected');
