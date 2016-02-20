@@ -1,0 +1,94 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+/* https://codepen.io/jasonadelia/pen/DnrAei */
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #434343;
+  background-image: linear-gradient(#434343, #282828); }
+
+.grid {
+  background-color: transparent;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+  height: 100%;
+  background-size: 50px 50px;
+  padding: 12.5px;
+  margin: 0;
+  font-family: sans-serif; }
+  .grid .node {
+    position: absolute;
+    display: inline-block;
+    width: 196px;
+    /* 100-2*border */
+    background-color: #888;
+    color: #000;
+    font-size: 10pt;
+    border: 2px solid #CCC;
+    border-radius: 12.5px;
+    box-shadow: #111 0 0 8px 0; }
+    .grid .node.selected {
+      border-color: #FFF; }
+    .grid .node > .label {
+      padding: 8px;
+      color: #222;
+      font-weight: bold;
+      border: 0 solid #CCC;
+      border-bottom-width: 1px; }
+    .grid .node > .description {
+      padding: 10px;
+      border-bottom: 1px solid #CCC;
+      background: #333;
+      color: #AAA; }
+    .grid .node > .description:last-child {
+      border-radius: 0 0 12.5px 12.5px; }
+    .grid .node > .properties {
+      padding-top: 1em; }
+      .grid .node > .properties > .inputs {
+        display: inline-block;
+        width: 45%;
+        /*
+        position: absolute;
+        top: 100px;
+        left: -8px;
+        */ }
+      .grid .node > .properties > .outputs {
+        display: inline-block;
+        width: 45%;
+        /*
+        position: absolute;
+        top: 100px;
+        right: -8px;
+        */ }
+  .grid .connector {
+    display: block;
+    margin-bottom: 10px;
+    width: 10px;
+    height: 10px;
+    top: 80px;
+    background: #FFF;
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+    padding: -2px;
+    color: #CCC; }
+    .grid .connector .label {
+      position: relative;
+      top: -2px;
+      width: 200px; }
+  .grid .connector-input {
+    background: #5F5;
+    left: -7.5px; }
+    .grid .connector-input .label {
+      left: -205px;
+      text-align: right; }
+  .grid .connector-output {
+    background: #F55;
+    right: -7.5px; }
+    .grid .connector-output .label {
+      left: 15px;
+      text-align: left; }
+
+/*# sourceMappingURL=style.css.map */
